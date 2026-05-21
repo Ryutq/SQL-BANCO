@@ -10,7 +10,8 @@
     $valorHE = ($_REQUEST['valorHE']);
     $numeroD = ($_REQUEST['numeroD']);
     $bruto = ($salarioB + ($numeroHE * $valorHE) + ($numeroD * 45));
-    
+    $inss = 0;
+    $ir = 0;
     if ($bruto < 1659.38){
         $inss = $salarioB * (0.08);
     } else if ($bruto >= 1659.38 && $bruto < 2765.66) {
@@ -33,7 +34,20 @@
         $ir = $salarioB * (0.275);
     };
     
+try {
+    $sqlInsert =  $conn->prepare("insert into folhapag(idFuncionario,nome,salarioB,numeroHE,numeroD,bruto,salarioL,inss,ir)values(:idFuncionario:nome:salarioB:numeroHE:numeroD:bruto:salarioL:inss:ir)");
 
+    $sqlInsert->bindValue(':cod',null);
+    $sqlInsert->bindValue(':nome',$nome);
+    $sqlInsert->bindValue(':salarioB',$salarioB);
+    $sqlInsert->bindValue(':numeroHE',$numeroHE);
+    $sqlInsert->bindValue(':numeroD',$valorD);
+    $sqlInsert->bindValue(':bruto',$bruto);
+    $sqlInsert->bindValue(':salarioL',$salarioL);
+}
+catch (PDOException $erro){
+    echo $erro->getMessage();
+}
     $salarioL = $bruto - $inss - $ir;
     echo "Olá $nome, seu salário base é $salarioB, seu número de horas extras é $numeroHE, o valor delas é $valorHE, o número de dependentes é 
     $numeroD, seu salário bruto é $bruto, o INSS é $inss, o imposto de renda é $ir, e o salário líquido é $salarioL";
