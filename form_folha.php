@@ -34,6 +34,16 @@
         $ir = $salarioB * (0.275);
     };
     
+
+    catch (PDOException $erro){
+    echo $erro->getMessage();
+}
+    $salarioL = $bruto - $inss - $ir;
+    echo "Olá $nome, seu salário base é $salarioB, seu número de horas extras é $numeroHE, o valor delas é $valorHE, o número de dependentes é 
+    $numeroD, seu salário bruto é $bruto, o INSS é $inss, o imposto de renda é $ir, e o salário líquido é $salarioL";
+    };
+
+
 try {
     $sqlInsert =  $conn->prepare("insert into folhapag(idFuncionario,nome,salarioB,numeroHE,numeroD,bruto,salarioL,inss,ir)values(:idFuncionario:nome:salarioB:numeroHE:numeroD:bruto:salarioL:inss:ir)");
 
@@ -44,14 +54,16 @@ try {
     $sqlInsert->bindValue(':numeroD',$valorD);
     $sqlInsert->bindValue(':bruto',$bruto);
     $sqlInsert->bindValue(':salarioL',$salarioL);
+
+    $sqlInsert -> execute();
+
+    //echo"Dados gravados com sucesso!!!";
+
+    echo"<script language=javascript>
+    alert('Dados gravados com sucesso!!!');
+    location.href = 'home.php';
+    </script>;
 }
-catch (PDOException $erro){
-    echo $erro->getMessage();
-}
-    $salarioL = $bruto - $inss - $ir;
-    echo "Olá $nome, seu salário base é $salarioB, seu número de horas extras é $numeroHE, o valor delas é $valorHE, o número de dependentes é 
-    $numeroD, seu salário bruto é $bruto, o INSS é $inss, o imposto de renda é $ir, e o salário líquido é $salarioL";
-    };
     ?>
 
 <?php
