@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultório - Cadastro de Paciente</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f3f4f6;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #1a3a5c;
+            color: white;
+            padding: 16px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header h1 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        header span {
+            font-size: 14px;
+            color: #93c5fd;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: #1a3a5c;
+            color: white;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .card-body {
+            padding: 28px 24px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: 160px;
+        }
+
+        .form-group.full {
+            flex: 1 1 100%;
+        }
+
+        label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        label .required {
+            color: #dc2626;
+            margin-left: 2px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select,
+        textarea {
+            padding: 9px 12px;
+            border: 1.5px solid #d1d5db;
+            border-radius: 7px;
+            font-size: 14px;
+            color: #111827;
+            outline: none;
+            transition: border-color 0.2s;
+            background: white;
+            width: 100%;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #1a3a5c;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #9ca3af;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 70px;
+        }
+
+        .card-footer {
+            padding: 16px 24px;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 9px 22px;
+            border-radius: 7px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-voltar {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        .btn-voltar:hover {
+            background: #d1d5db;
+        }
+
+        .btn-cadastrar {
+            background: #1a3a5c;
+            color: white;
+        }
+
+        .btn-cadastrar:hover {
+            background: #14305a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🏥 Consultório</h1>
+        <span>Cadastro de Paciente</span>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                👤 Cadastro de Paciente
+            </div>
+
+            <div class="card-body">
+
+                <div class="form-row">
+                    <div class="form-group" style="flex: 2;">
+                        <label>Nome do paciente <span class="required">*</span></label>
+                        <input type="text" id="nome" placeholder="Nome completo do paciente" />
+                    </div>
+                    <div class="form-group" style="flex: 1.5;">
+                        <label>Responsável</label>
+                        <select id="responsavel">
+                            <option value="">Pesquise o nome</option>
+                            <option value="Dr. Carlos">Dr. Carlos</option>
+                            <option value="Dra. Ana">Dra. Ana</option>
+                            <option value="Dr. Marcos">Dr. Marcos</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Data de Nascimento</label>
+                        <input type="date" id="dataNasc" />
+                    </div>
+                    <div class="form-group">
+                        <label>Série</label>
+                        <input type="text" id="serie" placeholder="" />
+                    </div>
+                    <div class="form-group" style="flex: 2;">
+                        <label>Escola</label>
+                        <select id="escola">
+                            <option value="">Pesquise o nome</option>
+                            <option value="E.E. São Paulo">E.E. São Paulo</option>
+                            <option value="Colégio Brasil">Colégio Brasil</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>CPF</label>
+                        <input type="text" id="cpf" placeholder="CPF (opcional)" />
+                    </div>
+                    <div class="form-group">
+                        <label>RG</label>
+                        <input type="text" id="rg" placeholder="RG (opcional)" />
+                    </div>
+                    <div class="form-group" style="flex: 2;">
+                        <label>Endereço</label>
+                        <input type="text" id="endereco" placeholder="" />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full">
+                        <label>Telefones</label>
+                        <textarea id="telefones" placeholder="Celular, whatsapp, telefone etc..."></textarea>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="card-footer">
+                <button class="btn btn-voltar" onclick="window.location.href='home.html'">← Voltar</button>
+                <button class="btn btn-cadastrar" onclick="cadastrarPaciente()">📋 Cadastrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function cadastrarPaciente() {
+            const nome = document.getElementById('nome').value.trim();
+
+            if (!nome) {
+                alert('Por favor, informe o nome do paciente.');
+                return;
+            }
+
+            alert('Cadastro de paciente efetuado com sucesso');
+
+            // Limpar campos após OK
+            document.getElementById('nome').value = '';
+            document.getElementById('responsavel').value = '';
+            document.getElementById('dataNasc').value = '';
+            document.getElementById('serie').value = '';
+            document.getElementById('escola').value = '';
+            document.getElementById('cpf').value = '';
+            document.getElementById('rg').value = '';
+            document.getElementById('endereco').value = '';
+            document.getElementById('telefones').value = '';
+        }
+    </script>
+</body>
+</html>

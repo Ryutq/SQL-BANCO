@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultório - Home</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f3f4f6;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #1a3a5c;
+            color: white;
+            padding: 16px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header h1 {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        header span {
+            font-size: 14px;
+            color: #93c5fd;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 60px auto;
+            padding: 0 24px;
+            text-align: center;
+        }
+
+        .container h2 {
+            font-size: 24px;
+            color: #1a3a5c;
+            margin-bottom: 8px;
+        }
+
+        .container p {
+            color: #6b7280;
+            font-size: 15px;
+            margin-bottom: 48px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px 32px;
+            width: 260px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+        }
+
+        .card-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            color: #1a3a5c;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-bottom: 0;
+        }
+
+        .btn-card {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 24px;
+            background: #1a3a5c;
+            color: white;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🏥 Consultório</h1>
+        <span>Página Inicial</span>
+    </header>
+
+    <div class="container">
+        <h2>Bem-vindo ao Sistema</h2>
+        <p>Selecione uma opção para continuar</p>
+
+        <div class="cards">
+            <a class="card" href="paciente.html">
+                <div class="card-icon">🧑‍⚕️</div>
+                <h3>Paciente</h3>
+                <p>Cadastrar novo paciente no sistema</p>
+                <span class="btn-card">Acessar</span>
+            </a>
+
+            <a class="card" href="usuario.html">
+                <div class="card-icon">👤</div>
+                <h3>Usuário</h3>
+                <p>Cadastrar novo usuário no sistema</p>
+                <span class="btn-card">Acessar</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

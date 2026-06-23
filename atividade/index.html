@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultório - Login</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a3a5c;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 48px 40px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            color: #1a3a5c;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo p {
+            color: #6b7280;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 6px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #111827;
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #1a3a5c;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 12px;
+            background: #1a3a5c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.2s;
+        }
+
+        .btn-login:hover {
+            background: #14305a;
+        }
+
+        .error-msg {
+            color: #dc2626;
+            font-size: 13px;
+            margin-top: 12px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <div class="logo">
+            <h1>🏥 Consultório</h1>
+            <p>Sistema de Gestão</p>
+        </div>
+
+        <div class="form-group">
+            <label for="login">Usuário</label>
+            <input type="text" id="login" placeholder="Informe o usuário" />
+        </div>
+
+        <div class="form-group">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" placeholder="Informe a senha" />
+        </div>
+
+        <button class="btn-login" onclick="fazerLogin()">Entrar</button>
+        <p class="error-msg" id="erroMsg">Usuário ou senha inválidos.</p>
+    </div>
+
+    <script>
+        function fazerLogin() {
+            const login = document.getElementById('login').value;
+            const senha = document.getElementById('senha').value;
+            const erro = document.getElementById('erroMsg');
+
+            // Credenciais válidas
+            if (login === 'admin' && senha === '1234') {
+                window.location.href = 'home.html';
+            } else {
+                erro.style.display = 'block';
+            }
+        }
+
+        // Permitir Enter para logar
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') fazerLogin();
+        });
+    </script>
+</body>
+</html>
