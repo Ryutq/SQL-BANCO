@@ -119,10 +119,10 @@ try{
 			location.href='alterar.php';
 		</script>";
 	}
+	}
 	catch(PDOException $erro){
 		echo $erro->getMessage();
 	}
-}
 ?>
 <body>
     
