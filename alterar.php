@@ -114,10 +114,11 @@ try{
 		$sqlUpdate->bindValue('Irenda',$Irenda);
 		$sqlUpdate->execute();
 
-		echo "<script language=javascript>
-			alert('Alteração Efetuada com Sucesso!');
-			location.href='alterar.php?al=$id_funcionario';
-		</script>";
+		echo "<script>
+    alert('Alteração Efetuada com Sucesso!');
+    location.href='alterar.php?al=$id_funcionario';
+</script>";
+
 	}
 	}
 	catch(PDOException $erro){
@@ -126,7 +127,8 @@ try{
 ?>
 <body>
     <h2>Alterar Informações do Funcionário</h2>
-<form name="Alterar" method="post" action="alterar.php">
+<form name="Alterar" method="post" action="alterar.php?al=<?php echo $row['id_funcionario']; ?>">
+
 
 	<fieldset>
 
