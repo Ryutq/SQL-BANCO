@@ -24,6 +24,7 @@
 	}
 ?>
 <?php
+try{
     if(isset($_REQUEST["Alterar"])){
         $id_funcionario = $_REQUEST["id_funcionario"];
         $nome= $_POST["nome"];
@@ -111,7 +112,17 @@
 		$sqlUpdate->bindValue('salliquido',$salliquido);
 		$sqlUpdate->bindValue('inss',$inss);
 		$sqlUpdate->bindValue('Irenda',$Irenda);
+		$sqlUpdate->execute();
+
+		echo "<script language=javascript>
+			alert('Alteração Efetuada com Sucesso!);
+			location.href='alterar.php';
+		</script>";
 	}
+	catch(PDOException $erro){
+		echo $erro->getMessage();
+	}
+}
 ?>
 <body>
     
