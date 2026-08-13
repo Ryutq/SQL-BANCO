@@ -1,16 +1,14 @@
-<?php 
-$host = "localhost:3306";
-$usuario = "root";
-$password = "";
-$dbname = "bd_contabilidade";
+<?php
+    $servername = "localhost:3307";
+    $username = "root";
+    $password = "";
+    $dbname = "folhapag";
 
-try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    echo "Registro inserido com sucesso!";
-} catch (PDOException $erro) {
-    header ("Ocorreu o seguinte erro: ".$erro->getMessage());
-}
-
+    try{
+           $conn = new PDO("mysql:host=$servername; dbname=$dbname;charset=UTF8",$username,$password);
+           $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+    }
+    catch(PDOException $erro){
+        header("Ocorreu o seguinte erro: ".$erro->getMessage());
+    }
 ?>
