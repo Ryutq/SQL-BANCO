@@ -132,8 +132,8 @@ try{
 
 	<p>Id do Funcionário</p>
 	<input type="text" name="nome" value=<?php 
-	echo $row['nome'] ?>
-	require>
+	echo $row['Id'] ?>
+	readonly>
 
 	<p>Nome do Funcionário</p>
 	<input type="text" name="nome" value=<?php 
@@ -142,7 +142,7 @@ try{
 
 
 	<p>Salário Base</p>
-	<input type="text" name="salariobase">
+	<input type="text" name="salariobase" >
 
 
 	<p>Número de horas extras</p>
