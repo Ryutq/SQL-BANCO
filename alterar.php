@@ -126,5 +126,31 @@ try{
 ?>
 <body>
     
+<form name="Enviar" method="post" action="form_folha.php">
+
+	<fieldset>
+	<p>Nome do Funcionário</p>
+	<input type="text" name="nome">
+
+
+	<p>Salário Base</p>
+	<input type="text" name="salariobase">
+
+
+	<p>Número de horas extras</p>
+	<input type="text" name="horasextras">
+
+
+	<p>Valor horas extras</p>
+	<input type="text" name="valorhoras">
+
+
+	<p>Número de Dependentes</p>
+	<input type="text" name="dependentes">
+
+	<input type="submit" name="Enviar" value="Enviar">
+
+	</fieldset>	
+</form>
 </body>
 </html>
