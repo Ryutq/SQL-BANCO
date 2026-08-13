@@ -125,8 +125,8 @@ try{
 	}
 ?>
 <body>
-    
-<form name="Enviar" method="post" action="form_folha.php">
+    <h2>Alterar Informações do Funcionário</h2>
+<form name="Alterar" method="post" action="alterar.php">
 
 	<fieldset>
 	<p>Nome do Funcionário</p>
@@ -148,7 +148,7 @@ try{
 	<p>Número de Dependentes</p>
 	<input type="text" name="dependentes">
 
-	<input type="submit" name="Enviar" value="Enviar">
+	<input type="submit" name="Alterar" value="Alterar">
 
 	</fieldset>	
 </form>
