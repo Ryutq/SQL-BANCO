@@ -115,8 +115,8 @@ try{
 		$sqlUpdate->execute();
 
 		echo "<script language=javascript>
-			alert('Alteração Efetuada com Sucesso!);
-			location.href='alterar.php';
+			alert('Alteração Efetuada com Sucesso!');
+			location.href='alterar.php?al=$id_funcionario';
 		</script>";
 	}
 	}
@@ -131,26 +131,26 @@ try{
 	<fieldset>
 
 	<p>Id do Funcionário</p>
-	<input type="text" name="nome" value=<?php  echo $row['id_funcionario'] ?>readonly>
+	<input type="text" name="id_funcionario" value="<?php echo $row['id_funcionario'];?>" readonly>
 
 	<p>Nome do Funcionário</p>
-	<input type="text" name="nome" >
+	<input type="text" name="nome" value="<?php echo $row['nome'];?>">
 
 
 	<p>Salário Base</p>
-	<input type="text" name="salariobase" >
+	<input type="text" name="salariobase" value="<?php echo $row['salariobase'];?>" require>
 
 
 	<p>Número de horas extras</p>
-	<input type="text" name="horasextras">
+	<input type="text" name="horasextras" value="<?php echo $row['horasextras'];?>" require>
 
 
 	<p>Valor horas extras</p>
-	<input type="text" name="valorhoras">
+	<input type="text" name="valorhoras"value="<?php echo $row['valorhoras'];?>" require>
 
 
 	<p>Número de Dependentes</p>
-	<input type="text" name="dependentes">
+	<input type="text" name="dependentes" value="<?php echo $row['dependentes'];?>" require>
 
 	<input type="submit" name="Alterar" value="enviar">
 
