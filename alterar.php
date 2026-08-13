@@ -97,8 +97,21 @@
 
 		$salliquido= $salbruto - $inss - $Irenda;
 
-        $sqlUpdate = $conn->prepare("update folhapag set nome = :nome, salariobase = :salariobase, horasextras = :horasextras, valorhoras = :valorhoras, dependentes = :dependentes, salbruto = :salbruto, salliquido = :salliquido, inss = :inss, Irenda = :Irenda where id_funcionario = :id_funcionario");
-    }
+        $sqlUpdate = $conn->prepare("update folhapag set nome = :nome, salariobase = :salariobase, horasextras = :horasextras, 
+		valorhoras = :valorhoras, 
+		dependentes = :dependentes, salbruto = :salbruto, salliquido = :salliquido,
+		 inss = :inss, Irenda = :Irenda where id_funcionario = :id_funcionario");
+		$sqlUpdate->bindValue('id_funcionario',$id_funcionario);
+		$sqlUpdate->bindValue('nome',$nome);
+		$sqlUpdate->bindValue('salariobase',$salariobase);
+		$sqlUpdate->bindValue('horasextras',$horasextras);
+		$sqlUpdate->bindValue('valorhoras',$valorhoras);
+		$sqlUpdate->bindValue('dependentes',$dependentes);
+		$sqlUpdate->bindValue('salbruto',$salbruto);
+		$sqlUpdate->bindValue('salliquido',$salliquido);
+		$sqlUpdate->bindValue('inss',$inss);
+		$sqlUpdate->bindValue('Irenda',$Irenda);
+	}
 ?>
 <body>
     
