@@ -129,8 +129,16 @@ try{
 <form name="Alterar" method="post" action="alterar.php">
 
 	<fieldset>
+
+	<p>Id do Funcionário</p>
+	<input type="text" name="nome" value=<?php 
+	echo $row['nome'] ?>
+	require>
+
 	<p>Nome do Funcionário</p>
-	<input type="text" name="nome">
+	<input type="text" name="nome" value=<?php 
+	echo $row['nome'] ?>
+	require>
 
 
 	<p>Salário Base</p>
@@ -148,7 +156,7 @@ try{
 	<p>Número de Dependentes</p>
 	<input type="text" name="dependentes">
 
-	<input type="submit" name="Alterar" value="Alterar">
+	<input type="submit" name="Alterar" value="enviar">
 
 	</fieldset>	
 </form>
