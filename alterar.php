@@ -131,14 +131,10 @@ try{
 	<fieldset>
 
 	<p>Id do Funcionário</p>
-	<input type="text" name="nome" value=<?php 
-	echo $row['Id'] ?>
-	readonly>
+	<input type="text" name="nome" value=<?php  echo $row['id_funcionario'] ?>readonly>
 
 	<p>Nome do Funcionário</p>
-	<input type="text" name="nome" value=<?php 
-	echo $row['nome'] ?>
-	require>
+	<input type="text" name="nome" >
 
 
 	<p>Salário Base</p>
